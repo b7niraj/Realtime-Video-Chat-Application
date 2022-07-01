@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Call</title>
+    <link rel="stylesheet" href="public/assets/css/bootstrap.min.css" />
+    <link rel="icon" href="public/assets/images/favicons/favicon-32x32.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="public/assets/css/style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  </head>
+  <body>
+    <main class="main-wrap d-flex flex-column">
+      <div class="top-block text-light d-flex">
+        <div id="meeting" class="top-remote-video-show-wrap d-flex w-75"></div>
+        <div
+          class="
+            info
+            bg-light
+            text-secondary
+            d-flex
+            flex-column
+            align-items-center
+          "
+        >
+          <div class="info-header d-flex w-100 justify-content-around">
+            <div
+              class="info-parts pt-2 w-50 cursor-pointer text-center parts-btn"
+            >
+              <div class="info-parts">
+                <span class="material-icons">people</span>
+                <small id="userCount" class="info-parts__count">0</small>
+              </div>
+            </div>
+            <div class="pt-2 text-center cursor-pointer w-50 chat-btn">
+              <span class="material-icons">message</span>
+            </div>
+          </div>
+          <div
+            id="chat"
+            class="info-chat flex-column w-100 justify-content-between"
+          >
+            <div id="messages" class="info-messages"></div>
+            <div class="info-input pr-2 pl-2 pb-2">
+              <form>
+                <div class="form-row">
+                  <div class="col">
+                    <input
+                      id="input"
+                      type="text"
+                      class="form-control"
+                      
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-small btn-outline-danger"
+                  >
+                    <span class="material-icons-outlined"> OK </span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="parts" class="info-parts w-100">
+            <ul class="parts-list list-group list-group-flush"></ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="
+          bottom-block
+          bg-light
+          m-0
+          d-flex
+          justify-content-between
+          align-items-center
+        "
+      >
+        <div class="bottom-left d-flex">
+          <div class="display-center cursor-pointer flex-column show-btn">
+            <span class="material-icons">message</span>
+            Chat a people
+          </div>
+          <div class="display-center cursor-pointer flex-column show-btn">
+            <span class="material-icons">person</span>
+            Members in meeting
+          </div>
+        </div>
+        <div
+          class="bottom-middle d-flex align-items-center justify-content-center"
+        >
+          <div 
+            class="
+              mic-toggle
+              action-icon-style
+              display-center
+              mr-2
+              cursor-pointer
+            "
+            id="muteMicro"
+          >
+            <span class="material-icons">mic</span>
+          </div>
+
+          <div
+            class="video-toggle action-icon-style display-center cursor-pointer"
+          >
+            <span class="material-icons">videocam</span>
+          </div>
+        </div>
+        <div
+          class="bottom-right d-flex justify-content-center align-items-center"
+        >
+          <div
+            class="
+              logout
+              d-flex
+              justify-content-center
+              flex-column
+              align-items-center
+              mr-5
+              cursor-pointer
+              text-danger
+            "
+          >
+            <span class="material-icons"> logout </span>
+            Log Out
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="public/assets/js/index.js" type="module"></script>
+    <script src="public/assets/js/meeting.js"></script>
+  </body>
+</html>
